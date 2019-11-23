@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Online chat room</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="shortcut icon" href="https://awesomety79.github.io/files/round-chat_bubble-24px.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js" integrity="sha256-ji09tECORKvr8xB9iCl8DJ8iNMLriDchC1+p+yt1hSs=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const room = urlParams.get('room') || "public";
+        var username = '';
+        while (username === '' || username === null) {
+          username = prompt("Username?");
+        }
+        var socket = io("https://helloperson-beta.glitch.me", {
+          query: {
+            uname: username,
+            room: room
+          }
+        });
+        function clear() {
+          $('#messages').empty();
+          $('#m').val('');
+          $('#messages').append($('<li>').text('You cleared your chat! - From System'));
+        }
+        
+        $('form').submit(function(){
+          var a = $('#m').val();
+          var cmd = a.split(" ");
+          if (cmd[0] === '/clear') {
+            clear();
+            return false;
+          }
+          else if (cmd[0] === '/kill') {
+            if (cmd[1] != undefined) {
+              socket.emit('chat message', [cmd[1] + ' --> 🚶🔫 *bang*', 'System', username, {room: room}]);
+              $('#messages').append($('<li>').text(cmd[1] + ' --> 🚶🔫 *bang* - From System'));
+            }
+            else {
+              socket.emit('chat message', ['You need to tell me who to kill!', 'System', username, {room: room}]);
+              $('#messages').append($('<li>').text('You need to tell me who to kill! - From System'));
+            }
+            $('#m').val("");
+            return false;
+          }
+          if ($('#m').val() !== '') {
+          var vala = $('#m').val();
+          var valb = vala + ' - From ' + username;
+          socket.emit('chat message', [$('#m').val(), username, username, {room: room}]);
+          $('#messages').append($('<li>').text(valb));
+          window.scrollTo(0, document.body.scrollHeight);
+          $('#m').val('');
+          }
+          
+          return false;
+        });
+        socket.on('chat message', function(msg){
+          if (msg[1] !== username && msg[2] !== username && msg[3]["room"] === room) {
+            var val = msg[0] + ' - From ' + msg[1];
+            $('#messages').append($('<li>').text(val));
+            window.scrollTo(0, document.body.scrollHeight);
+          }
+        });
+        socket.on('action', function(msg){
+        
+        });
+      });
+    </script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px; font-family: futura-pt, sans-serif; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9.5%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+      #messages { margin-bottom: 40px; }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" placeholder="Enter message here..." /><button><i class="material-icons md-18" style="text-align: center; font-size: 12px;">send</i></button>
+    </form>
+  </body>
+</html>

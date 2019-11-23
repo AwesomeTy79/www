@@ -1,0 +1,21 @@
+{
+  "name": "www",
+  "version": "1.0.0",
+  "description": "my website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo NO TEST SCRIPT",
+    "start": "node server.js",
+    "stop": "pkill --signal SIGINT WebServer"
+  },
+  "keywords": [
+    "www"
+  ],
+  "author": "tyler",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0",
+    "uuid": "^3.3.3"
+  }
+}
