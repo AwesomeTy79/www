@@ -1,0 +1,10 @@
+#!/bin/bash
+git add -A
+echo Added!
+echo What should the commit message be?
+read varname
+git commit -m "$varname"
+echo Commited!
+git push -u origin master
+echo Pushed!
+echo Done!
