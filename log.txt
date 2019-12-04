@@ -1,0 +1,13 @@
+Wed, 04 Dec 2019 19:25:02 GMT express-session deprecated undefined resave option; provide resave option at server.js:22:9
+Wed, 04 Dec 2019 19:25:02 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at server.js:22:9
+Running on port 443!
+::ffff:50.203.38.105
+Sent index
+::ffff:50.203.38.105
+::ffff:50.203.38.105
+Sent index
+::ffff:50.203.38.105
+::ffff:50.203.38.105
+Sent index
+::ffff:50.203.38.105
+::ffff:50.203.38.105
