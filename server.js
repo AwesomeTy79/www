@@ -63,15 +63,20 @@ app.get('/', function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      console.log('Sent:');
+      console.log('Sent index');
     }
   });
 });
 app.get('/login', (req, res) => {
-  res.send('<form action="/login" method="post"> <div> <label>Username:</label> <input type="text" name="username"/> </div> <div> <label>Password:</label> <input type="password" name="password"/> </div> <div> <input type="submit" value="Log In"/> </div> </form>');
+  res.sendFile(__dirname + "/pages/login.html", function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('Sent login');
+    }
+  });
 });
-app.post('/login', passport.authenticate('local', { successRedirect: '/good-login',
-                                                    failureRedirect: '/bad-login' }));
+app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/room', function(req, res){
   res.sendFile(__dirname + '/pages/chat/chat.html');
 });
