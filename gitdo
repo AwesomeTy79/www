@@ -1,16 +1,16 @@
 #!/bin/bash
 git add -A
-echo \n
+printf "\n"
 echo Added!
-echo \n
+printf "\n"
 echo What should the commit message be?
 read varname
-echo \n
+printf "\n"
 git commit -m "$varname"
-echo \n
+printf "\n"
 echo Commited!
-echo \n
+printf "\n"
 git push -u origin master
-echo \n
+printf "\n"
 echo Pushed!
 echo Done!
