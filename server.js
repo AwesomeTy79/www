@@ -62,7 +62,10 @@ app.use(function (req, res, next) {
   if (cookie === undefined)
   {
     // no: set a new cookie
-    var uname=req.user.username||"none"
+    if (req.user) {
+      var uname=req.user.username
+    }
+    else {var uname="none")
     res.cookie('cookieName',uname, { maxAge: 900000 });
     console.log('cookie created successfully');
   } 
