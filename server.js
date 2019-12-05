@@ -59,10 +59,6 @@ passport.deserializeUser(function(id, done) {
   });
 });
 app.use(function (req, res, next) {
-  // check if client sent cookie
-  var cookie = req.cookies.uname||undefined;
-  if (cookie === undefined)
-  {
     // no: set a new cookie
     if (req.user) {
       var uname=req.user.username;
@@ -70,11 +66,6 @@ app.use(function (req, res, next) {
     else {var uname="none"}
     res.cookie('uname',uname, { maxAge: 900000 });
     console.log('cookie created successfully');
-  } 
-  else
-  {
-    // yes, cookie was already present 
-    console.log('cookie exists', cookie);
   } 
   next(); // <-- important!
 });
@@ -99,6 +90,10 @@ app.get('/', function (req, res) {
     stuff = ["Log In", "/login"]
   }
   res.render('index', { loglabel: stuff[0], loglink: stuff[1] });
+});
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
 });
 app.get('/login', (req, res) => {
   res.sendFile(__dirname + "/pages/login.html", function (err) {
