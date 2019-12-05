@@ -55,7 +55,7 @@ passport.deserializeUser(function(id, done) {
 });
 app.use(function (req, res, next) {
   // check if client sent cookie
-  var cookie = req.cookies.uname;
+  var cookie = req.cookies.uname||undefined;
   if (cookie === undefined)
   {
     // no: set a new cookie
