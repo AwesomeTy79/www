@@ -19,7 +19,7 @@ var sqlite3 = require("sqlite3");
 var db = new sqlite3.Database('./users.db');
 var cookieParser = require('cookie-parser')
 app.set('view engine', 'pug')
-app.set('views', './pages')
+app.set('views', './views')
 
 // Middleware
 app.use(cookieParser());
