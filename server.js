@@ -72,7 +72,7 @@ process.title = "WebServer";
 // Pages
 app.get('/', function (req, res) {
   /*
-  res.sendFile(__dirname + "/pages/index.html", function (err) {
+  res.sendFile(__dirname + "/views/index.html", function (err) {
     if (err) {
       console.log(err);
     } else {
@@ -93,7 +93,7 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 app.get('/login', (req, res) => {
-  res.sendFile(__dirname + "/pages/login.html", function (err) {
+  res.sendFile(__dirname + "/views/login.html", function (err) {
     if (err) {
       console.log(err);
     } else {
@@ -103,10 +103,10 @@ app.get('/login', (req, res) => {
 });
 app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/room', function(req, res){
-  res.sendFile(__dirname + '/pages/chat/chat.html');
+  res.sendFile(__dirname + '/views/chat/chat.html');
 });
 app.get('/chat', function(req, res){
-  res.sendFile(__dirname + '/pages/chat/root.html');
+  res.sendFile(__dirname + '/views/chat/root.html');
 });
 app.get('/get', function(req, res){
   res.send(Object.keys(io.sockets.sockets));
