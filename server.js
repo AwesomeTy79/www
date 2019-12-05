@@ -64,9 +64,8 @@ app.use(function (req, res, next) {
       var uname=req.user.username;
     }
     else {var uname="none"}
-    res.cookie('uname',uname, { maxAge: 900000 });
-    console.log('cookie created successfully');
-  next(); // <-- important!
+    req.session.uname=uname
+    next(); // <-- important!
 });
 app.use(express.static("public"));
 process.title = "WebServer";
@@ -82,7 +81,7 @@ app.get('/', function (req, res) {
     }
   });*/
   var stuff
-  if (req.cookies.uname != "none") {
+  if (req.session.uname != "none") {
     stuff = ["Log Out", "/logout"];
   }
   else {
