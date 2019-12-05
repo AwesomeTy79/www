@@ -1,67 +1,61 @@
-<html>
-  <head>
-    <title>Room select</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="shortcut icon" href="https://thebestwebsite.tk/icon.ico">
-    <style>
-      input[type=text], select {
-          width: 100%;
-          padding: 12px 20px;
-          margin: 8px 0;
-          display: inline-block;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          box-sizing: border-box;
-      }
-
-      input[type=submit] {
-          width: 100%;
-          background-color: #4CAF50;
-          color: white;
-          padding: 14px 20px;
-          margin: 8px 0;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-      }
-
-      input[type=submit]:hover {
-          background-color: #45a049;
-      }
-
-      div.roomselect {
-          border-radius: 5px;
-          background-color: #f2f2f2;
-          padding: 20px;
-      }
-      body {
-          font-family: "Roboto";
-          font-size: 18px;
-      }
-    </style>
-    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBtpfJl64CKvQBZfHNTcxcvT_Lny5yaz7w",
-        authDomain: "hellopersonglitch.firebaseapp.com",
-        databaseURL: "https://hellopersonglitch.firebaseio.com",
-        projectId: "hellopersonglitch",
-        storageBucket: "",
-        messagingSenderId: "400970649624"
-      };
-      firebase.initializeApp(config);
-    </script>
-  </head>
-  <body>
-    <p class="info">Please enter the room you want to join.<br>If you leave it blank, it will default to "public".<br>You can enter in anything, and is anyone else enters in that too,<br>then only they can see your messages.
-    </p>
-    <div class="roomselect">
-      <form action="/room" method="GET" target="_blank">
-      <input type="text" name="room" placeholder="Enter the room name here..." /><input type="submit" value="Enter the chat room!" />
-    </form>
-    </div>
-    
-  </body>
-</html>
+head
+  title Room select
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  link(href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet')
+  link(rel='shortcut icon' href='/icon.ico')
+  style.
+    input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    input[type=submit]:hover {
+    background-color: #45a049;
+    }
+    div.roomselect {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    }
+    body {
+    font-family: "Roboto";
+    font-size: 18px;
+    }
+  script(src='https://www.gstatic.com/firebasejs/5.5.8/firebase.js')
+  script.
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyBtpfJl64CKvQBZfHNTcxcvT_Lny5yaz7w",
+    authDomain: "hellopersonglitch.firebaseapp.com",
+    databaseURL: "https://hellopersonglitch.firebaseio.com",
+    projectId: "hellopersonglitch",
+    storageBucket: "",
+    messagingSenderId: "400970649624"
+    };
+    firebase.initializeApp(config);
+p.info
+  | Please enter the room you want to join.
+  br
+  | If you leave it blank, it will default to &quot;public&quot;.
+  br
+  | You can enter in anything, and is anyone else enters in that too,
+  br
+  | then only they can see your messages.
+.roomselect
+  form(action='/room' method='GET' target='_blank')
+    input(type='text' name='room' placeholder='Enter the room name here...')
+    input(type='submit' value='Enter the chat room!')
