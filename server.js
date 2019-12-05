@@ -91,7 +91,7 @@ app.get('/', function (req, res) {
       console.log('Sent index');
     }
   });*/
-  res.render('index', { title: 'Hey' });
+  res.render('index', { loglabel: 'lksjlkjsdl', loglink: "https://www.google.com" });
 });
 app.get('/login', (req, res) => {
   res.sendFile(__dirname + "/pages/login.html", function (err) {
