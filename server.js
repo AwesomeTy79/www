@@ -68,7 +68,7 @@ app.use(function (req, res, next) {
       var uname=req.user.username;
     }
     else {var uname="none"}
-    res.cookie('cookieName',uname, { maxAge: 900000 });
+    res.cookie('uname',uname, { maxAge: 900000 });
     console.log('cookie created successfully');
   } 
   else
@@ -91,7 +91,14 @@ app.get('/', function (req, res) {
       console.log('Sent index');
     }
   });*/
-  res.render('index', { loglabel: 'lksjlkjsdl', loglink: "https://www.google.com" });
+  var stuff
+  if (req.cookies.uname != "none") {
+    stuff = ["Log Out", "/logout"];
+  }
+  else {
+    stuff = ["Log In", "/login"]
+  }
+  res.render('index', { loglabel: stuff[0], loglink: stuff[1] });
 });
 app.get('/login', (req, res) => {
   res.sendFile(__dirname + "/pages/login.html", function (err) {
