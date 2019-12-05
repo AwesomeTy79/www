@@ -3,8 +3,12 @@ git add -A
 printf "\n"
 echo Added!
 printf "\n"
-echo What should the commit message be?
-read varname
+varname=$1
+if [ $# -eq 0 ]
+  then
+    echo What should the commit message be?
+    read varname
+fi
 printf "\n"
 git commit -m "$varname"
 printf "\n"
