@@ -2,14 +2,6 @@ var app = require('express')();
 var http = require('http');
 var server = http.Server(app)
 var io = require('socket.io')(server);
-var firebase = require("firebase");
-var config = {
-  apiKey: "AIzaSyBtpfJl64CKvQBZfHNTcxcvT_Lny5yaz7w",
-  authDomain: "hellopersonglitch.firebaseapp.com",
-  databaseURL: "https://hellopersonglitch.firebaseio.com",
-  storageBucket: "hellopersonglitch.appspot.com"
-};
-firebase.initializeApp(config);
 app.get('/room', function(req, res){
   res.sendFile(__dirname + '/chat.html');
 });
