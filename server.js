@@ -18,7 +18,6 @@ var crypto = require("crypto");
 var sqlite3 = require("sqlite3");
 var db = new sqlite3.Database('./users.db');
 // Middleware
-app.use(express.static("public"));
 app.use(session({ secret: "iuoiudwiouwqoiudwqiudioodiwquoiduiouqwuoidoihjheojpwiehjidoqcshjlksaj" }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
@@ -54,7 +53,24 @@ passport.deserializeUser(function(id, done) {
     return done(null, row);
   });
 });
-
+app.use(function (req, res, next) {
+  // check if client sent cookie
+  var cookie = req.cookies.uname;
+  if (cookie === undefined)
+  {
+    // no: set a new cookie
+    var uname=req.user.username||"none"
+    res.cookie('cookieName',uname, { maxAge: 900000 });
+    console.log('cookie created successfully');
+  } 
+  else
+  {
+    // yes, cookie was already present 
+    console.log('cookie exists', cookie);
+  } 
+  next(); // <-- important!
+});
+app.use(express.static("public"));
 process.title = "WebServer";
 
 // Pages
