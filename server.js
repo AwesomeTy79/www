@@ -17,7 +17,10 @@ var session = require("express-session"),
 var crypto = require("crypto");
 var sqlite3 = require("sqlite3");
 var db = new sqlite3.Database('./users.db');
+var cookieParser = require('cookie-parser')
+
 // Middleware
+app.use(cookieParser());
 app.use(session({ secret: "iuoiudwiouwqoiudwqiudioodiwquoiduiouqwuoidoihjheojpwiehjidoqcshjlksaj" }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
