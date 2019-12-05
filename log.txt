@@ -1,11 +1,15 @@
-Thu, 05 Dec 2019 15:10:16 GMT express-session deprecated undefined resave option; provide resave option at server.js:24:9
-Thu, 05 Dec 2019 15:10:16 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at server.js:24:9
-Running on port 443!
-::ffff:50.203.38.105
-TypeError: Cannot read property 'username' of undefined
-    at /home/pi/node/server.js:65:24
-    at Layer.handle [as handle_request] (/home/pi/node/node_modules/express/lib/router/layer.js:95:5)
-    at trim_prefix (/home/pi/node/node_modules/express/lib/router/index.js:317:13)
+/home/pi/node/server.js:68
+    else {var uname="none")
+                          ^
+
+SyntaxError: Unexpected token ')'
+    at Module._compile (internal/modules/cjs/loader.js:895:18)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+    at Module.load (internal/modules/cjs/loader.js:815:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:1047:10)
+    at internal/main/run_main_module.js:17:11
+   at trim_prefix (/home/pi/node/node_modules/express/lib/router/index.js:317:13)
     at /home/pi/node/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/home/pi/node/node_modules/express/lib/router/index.js:335:12)
     at next (/home/pi/node/node_modules/express/lib/router/index.js:275:10)
@@ -28,19 +32,19 @@ TypeError: Cannot read property 'username' of undefined
     at Layer.handle [as handle_request] (/home/pi/node/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/home/pi/node/node_modules/express/lib/router/index.js:317:13)
     at /home/pi/node/node_modules/express/lib/router/index.js:284:7
-ode/server.js:58:28
+::ffff:50.203.38.105
+TypeError: Cannot read property 'username' of undefined
+    at /home/pi/node/server.js:65:24
     at Layer.handle [as handle_request] (/home/pi/node/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/home/pi/node/node_modules/express/lib/router/index.js:317:13)
     at /home/pi/node/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/home/pi/node/node_modules/express/lib/router/index.js:335:12)
     at next (/home/pi/node/node_modules/express/lib/router/index.js:275:10)
-    at /home/pi/node/server.js:25:107
+    at /home/pi/node/server.js:28:107
     at Layer.handle [as handle_request] (/home/pi/node/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/home/pi/node/node_modules/express/lib/router/index.js:317:13)
     at /home/pi/node/node_modules/express/lib/router/index.js:284:7
-::ffff:171.67.70.112
-TypeError: Cannot read property 'uname' of undefined
-    at /home/pi/node/server.js:58:28
+/server.js:58:28
     at Layer.handle [as handle_request] (/home/pi/node/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/home/pi/node/node_modules/express/lib/router/index.js:317:13)
     at /home/pi/node/node_modules/express/lib/router/index.js:284:7
