@@ -66,7 +66,6 @@ app.use(function (req, res, next) {
     else {var uname="none"}
     res.cookie('uname',uname, { maxAge: 900000 });
     console.log('cookie created successfully');
-  } 
   next(); // <-- important!
 });
 app.use(express.static("public"));
