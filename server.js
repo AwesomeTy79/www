@@ -93,20 +93,14 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 app.get('/login', (req, res) => {
-  res.sendFile(__dirname + "/views/login.html", function (err) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('Sent login');
-    }
-  });
+  res.render('login');
 });
 app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/room', function(req, res){
-  res.sendFile(__dirname + '/views/chat/chat.html');
+  res.render('views/chat');
 });
 app.get('/chat', function(req, res){
-  res.render('chat/root.pug');
+  res.render('chat/root');
 });
 app.get('/get', function(req, res){
   res.send(Object.keys(io.sockets.sockets));
