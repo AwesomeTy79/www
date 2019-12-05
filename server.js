@@ -106,7 +106,7 @@ app.get('/room', function(req, res){
   res.sendFile(__dirname + '/views/chat/chat.html');
 });
 app.get('/chat', function(req, res){
-  res.sendFile(__dirname + '/views/chat/root.html');
+  res.render('chat/root.pug');
 });
 app.get('/get', function(req, res){
   res.send(Object.keys(io.sockets.sockets));
