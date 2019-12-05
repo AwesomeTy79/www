@@ -18,6 +18,8 @@ var crypto = require("crypto");
 var sqlite3 = require("sqlite3");
 var db = new sqlite3.Database('./users.db');
 var cookieParser = require('cookie-parser')
+app.set('view engine', 'pug')
+app.set('views', './pages')
 
 // Middleware
 app.use(cookieParser());
@@ -81,13 +83,15 @@ process.title = "WebServer";
 
 // Pages
 app.get('/', function (req, res) {
+  /*
   res.sendFile(__dirname + "/pages/index.html", function (err) {
     if (err) {
       console.log(err);
     } else {
       console.log('Sent index');
     }
-  });
+  });*/
+  res.render('index', { title: 'Hey' });
 });
 app.get('/login', (req, res) => {
   res.sendFile(__dirname + "/pages/login.html", function (err) {
