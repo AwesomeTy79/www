@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "thebestwebsite",
+            "dialect": "MariaDB",
+            "isActive": false,
+            "isConnected": false,
+            "name": "myDB",
+            "password": "tylerrelyt",
+            "port": 3306,
+            "server": "2601:282:501:7489:1319:5226:4766:cdfd",
+            "username": "pi"
+        }
+    ]
+}

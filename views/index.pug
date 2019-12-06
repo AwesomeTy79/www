@@ -1,8 +1,49 @@
 doctype html
 head
+  script(type='text/javascript').
+    $('#form').submit(function(e){
+      e.preventDefault();
+      $.ajax({
+        url:'/signup',
+        type:'post',
+        data:$('#myForm').serialize(),
+        success:function(){
+          alert(1);
+        }
+      });
+    });
+  unless loglink = '/logout'
+    script(src="text/javascript").
+      var modal = document.getElementById("myModal");
+      var btn = document.getElementById("myBtn");
+      var span = document.getElementsByClassName("close")[0];
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    script(type='text/javascript').
+      $('#form').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+          url:'/signup',
+          type:'post',
+          data:$('#myForm').serialize(),
+          success:function(){
+          }
+        });
+      });
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
   script(src='client.js')
   link(href='https://fonts.googleapis.com/css?family=Roboto:300,300i&display=swap' rel='stylesheet')
   link(rel='stylesheet' href='/scripts/client.css')
+  link(rel='stylesheet' href='/scripts/modal.css')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
   title HEYEHEYYEHEYEYEYYAAAAAAAAAA
 .navbar
@@ -15,6 +56,18 @@ head
       a(href='bubbles') Bubbles!
       a(href='chat') Chat
   a(href=loglink style='float: right;') #{loglabel}
+  unless loglink = '/logout'
+    a(href='#' id='myBtn' style='float: right;') Sign Up!
+    div(class='modal' id='myModal')
+      span(class='close') &times;
+      form(action='/signup' method='post')
+        label Username:
+        input(type='text' name='username')
+        br
+        label Password:
+        input(type='password' name='password')
+        br
+        input(type='submit' value='Sign Up')
 h1
   | THE BEST WEBSITE
 p

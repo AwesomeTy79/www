@@ -1,22 +1,24 @@
 doctype html
 head
-form(action='/signup' method='post')
-  label Username:
-  input(type='text' name='username')
-  br
-  label Password:
-  input(type='password' name='password')
-  br
-  input(type='submit' value='Sign Up')
-script(type='text/javascript').
-  $('#form').submit(function(e){
-    e.preventDefault();
-    $.ajax({
-      url:'/signup',
-      type:'post',
-      data:$('#myForm').serialize(),
-      success:function(){
-        alert(1);
-      }
+  script(type='text/javascript').
+    $('#form').submit(function(e){
+      e.preventDefault();
+      $.ajax({
+        url:'/signup',
+        type:'post',
+        data:$('#myForm').serialize(),
+        success:function(){
+          alert(1);
+        }
+      });
     });
-  });
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+body
+  form(action='/signup' method='post')
+    label Username:
+    input(type='text' name='username')
+    br
+    label Password:
+    input(type='password' name='password')
+    br
+    input(type='submit' value='Sign Up')
