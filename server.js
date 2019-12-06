@@ -29,7 +29,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {console.log(req.headers['x-forwarded-for'] || req.connection.remoteAddress); next();});
 function hashPassword(password, salt) {
-  console.log(password + " " + salt)
   var hash = crypto.createHash('sha256');
   hash.update(password);
   hash.update(salt);
