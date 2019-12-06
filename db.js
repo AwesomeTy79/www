@@ -10,7 +10,7 @@ exports.hashPassword = function (password, salt) {
     hash.update(password);
     hash.update(salt);
     return hash.digest('hex');
-}
+};
 exports.signUp = async function (uname, pass) {
     let conn;
     try {
@@ -27,7 +27,7 @@ exports.signUp = async function (uname, pass) {
     } finally {
         if (conn) return conn.end();
     }
-}
+};
 exports.signIn = async function (uname, pass) {
 
-}
+};

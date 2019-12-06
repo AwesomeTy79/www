@@ -60,13 +60,13 @@ function middleware() {
     });
   });
   app.use(function (req, res, next) {
-    // no: set a new cookie
+    var uname;
     if (req.user) {
-      var uname = req.user.username;
+      uname = req.user.username;
     } else {
-      var uname = "none"
+      uname = "none";
     }
-    req.session.uname = uname
+    req.session.uname = uname;
     next(); // <-- important!
   });
   app.use(express.static("public"));
@@ -83,11 +83,11 @@ function pages() {
         console.log('Sent index');
       }
     });*/
-    var stuff
+    var stuff;
     if (req.session.uname != "none") {
       stuff = ["Log Out", "/logout"];
     } else {
-      stuff = ["Log In", "/login"]
+      stuff = ["Log In", "/login"];
     }
     res.render('index', {
       loglabel: stuff[0],
@@ -128,10 +128,10 @@ function chat() {
     res.json(online);
   });
   io.on('connection', function (socket) {
-    if (socket.request._query["uname"] !== undefined && socket.request._query["room"] !== undefined) {
+    if (socket.request._query.uname !== undefined && socket.request._query.room !== undefined) {
       online.push({
-        username: socket.request._query["uname"],
-        room: socket.request._query["room"]
+        username: socket.request._query.uname,
+        room: socket.request._query.room
       });
     }
 
@@ -143,8 +143,8 @@ function chat() {
     });
     socket.on('disconnect', function () {
       online.splice(online.indexOf({
-        username: socket.request._query["uname"],
-        room: socket.request._query["room"]
+        username: socket.request._query.uname,
+        room: socket.request._query.room
       }), 1);
     });
   });
