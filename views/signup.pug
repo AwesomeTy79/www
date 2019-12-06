@@ -8,3 +8,15 @@ form(action='/signup' method='post')
   input(type='password' name='password')
   br
   input(type='submit' value='Sign Up')
+script(type='text/javascript').
+  $('#form').submit(function(e){
+    e.preventDefault();
+    $.ajax({
+      url:'/signup',
+      type:'post',
+      data:$('#myForm').serialize(),
+      success:function(){
+        alert(1);
+      }
+    });
+  });
