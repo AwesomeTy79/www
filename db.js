@@ -28,6 +28,3 @@ exports.signUp = async function (uname, pass) {
         if (conn) return conn.end();
     }
 };
-exports.signIn = async function (uname, pass) {
-
-};
