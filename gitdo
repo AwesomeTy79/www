@@ -1,7 +1,8 @@
 #!/bin/bash
+git add -u
 git add -A
 printf "\n"
-echo Added!
+echo Updated file index!
 printf "\n"
 varname=$1
 if [ $# -eq 0 ]
