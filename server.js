@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 // Modules
@@ -109,11 +110,14 @@ function pages() {
 		acnt.signUp(req.body.username, req.body.password);
 		res.redirect(307, '/');
 	});
+	app.get('/privacy', (req, res) => {
+		res.sendFile(__dirname + '/views/privacy.html');
+	});
 }
 
 function chat() {
 	app.get('/room', function (req, res) {
-		res.render('views/chat');
+		res.render('chat/chat');
 	});
 	app.get('/chat', function (req, res) {
 		res.render('chat/root');
