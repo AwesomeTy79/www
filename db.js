@@ -4,7 +4,7 @@ const mariadb = require('mariadb');
 const crypto = require('crypto');
 const pool = mariadb.createPool({
 	host: 'localhost',
-	user: 'pi',
+	user: 'node',
 	password: 'tylerrelyt',
 	connectionLimit: 5
 });

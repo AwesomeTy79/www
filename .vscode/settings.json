@@ -9,7 +9,7 @@
             "password": "tylerrelyt",
             "port": 3306,
             "server": "localhost",
-            "username": "pi"
+            "username": "node"
         }
     ]
 }
