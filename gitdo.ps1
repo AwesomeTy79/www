@@ -8,3 +8,4 @@ echo "Commited!"
 git push -u origin master
 echo "Pushed!"
 echo "Done!"
+PAUSE
